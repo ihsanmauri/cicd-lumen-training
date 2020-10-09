@@ -28,6 +28,7 @@ jobs:
     - stage: "Build Docker Image"
       name: "Build Images Docker" 
       script:
+      - if [ "$TRAVIS_BRANCH" == "master" ]; then
       - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --username --password-stdin
       - docker build -t travis-ci-build-stages-demo .
       - docker images
