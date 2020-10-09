@@ -28,7 +28,7 @@ jobs:
     - stage: "Build Docker Image"
       name: "Build Images Docker" 
       script:
-      - echo "$DOCKER_PASSWORD" | docker login 
+      - echo <my-pwd> | docker login <registry-name> -u <username> -p <password>
       - docker build -t travis-ci-build-stages-demo .
       - docker images
       - docker tag travis-ci-build-stages-demo $DOCKER_USERNAME/cicd-lumen-training
